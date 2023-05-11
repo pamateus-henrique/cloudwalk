@@ -11,7 +11,7 @@ import mysql.connector
 # Define the queries to execute
 queries = [
     "SELECT t1.* FROM cwtask1.summary t1 JOIN cwtask1.summary t2 ON t1.status = t2.status AND t1.time = t2.time + INTERVAL 1 MINUTE WHERE t1.status = 'denied' AND t1.amount >= t2.amount * 2 AND t1.amount - t2.amount >= 10 AND t1.time >= NOW() - INTERVAL 5 MINUTE",
-    "SELECT t1.* FROM cwtask1.summary t1 JOIN cwtask1.summary t2 ON t1.status = t2.status AND t1.time = t2.time + INTERVAL 1 MINUTE WHERE t1.status = 'approved' AND t1.amount >= t2.amount * 2 AND t1.amount - t2.amount >= 10 AND t1.time >= NOW() - INTERVAL 5 MINUTE",
+    "SELECT t1.* FROM cwtask1.summary t1 JOIN cwtask1.summary t2 ON t1.status = t2.status AND t1.time = t2.time + INTERVAL 1 MINUTE WHERE t1.status = 'approved' AND (t1.amount >= t2.amount * 2 OR t1.amount <= t2.amount / 2) AND t1.amount - t2.amount >= 10 AND t1.time >= NOW() - INTERVAL 5 MINUTE",
     "SELECT t1.* FROM cwtask1.summary t1 JOIN cwtask1.summary t2 ON t1.status = t2.status AND t1.time = t2.time + INTERVAL 1 MINUTE WHERE t1.status = 'reversed' AND t1.amount >= t2.amount * 2 AND t1.amount - t2.amount >= 10 AND t1.time >= NOW() - INTERVAL 5 MINUTE",
     "SELECT t1.* FROM cwtask1.summary t1 JOIN cwtask1.summary t2 ON t1.status = t2.status AND t1.time = t2.time + INTERVAL 1 MINUTE WHERE t1.status = 'refunded' AND t1.amount >= t2.amount * 2 AND t1.amount - t2.amount >= 10 AND t1.time >= NOW() - INTERVAL 5 MINUTE"
 ]

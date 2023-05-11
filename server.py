@@ -93,7 +93,7 @@ def handle_post_request():
     status = 'approved'
     time = datetime.now().strftime('%Y-%m-%d %H:%M:00')
     try:
-        cnx = mysql.connector.connect(user='mateus', password='mateus99790087',
+        cnx = mysql.connector.connect(user='user', password='password',
                                        host='localhost', database='cwtask1')
         cursor = cnx.cursor()
 
